@@ -6,8 +6,8 @@ function displayElement(){
   return <h1>Its come from Function</h1>
 }
 
-function showFullUser(user){
-return user.firstName+' '+user.lastName;
+function showFullUser(inputObj){
+return inputObj.firstName+' '+inputObj.lastName;
 }
 
 const user={
