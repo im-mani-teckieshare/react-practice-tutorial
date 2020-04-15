@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./style.css";
+import App from './app';
 
 // ReactDOM.render(
 //   <div>
@@ -14,8 +15,8 @@ import "./style.css";
 //   document.getElementById("root")
 // );
 
-function App() {
-  return <div>Hello World</div>;
-}
+// function App() {
+//   return <div>Hello World</div>;
+// }
 
 ReactDOM.render(<App />, document.getElementById("root"));
