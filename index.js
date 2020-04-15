@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom';
 import "./style.css";
 
 
+// ReactDOM.render(
+//   <div>
+//     Hello World
+//   </div>,
+//   document.getElementById("root")
+// );
+
 ReactDOM.render(
-  <div>
-    <h1>Hello World</h1>
-    <h2>Basic JSX tutorial</h2>
-  </div>,
+
+  React.createElement('div',null,['Hello World'])
+  ,
   document.getElementById("root")
 );
