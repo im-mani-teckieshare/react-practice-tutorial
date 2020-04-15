@@ -1,7 +1,6 @@
 import React from "react";
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 import "./style.css";
-
 
 // ReactDOM.render(
 //   <div>
@@ -11,8 +10,6 @@ import "./style.css";
 // );
 
 ReactDOM.render(
-
-  React.createElement('div',null,['Hello World'])
-  ,
+  React.createElement("div", null, ["Hello World"]),
   document.getElementById("root")
 );
