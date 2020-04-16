@@ -26,7 +26,7 @@ function changeEvent(e){
       <button onClick={() => clickEvent()}>Inline Event</button>
       <hr/>
       <input onChange={changeEvent}/>
-      <h2>Inline Change Event</h2>
+      <h2>Arrow Function Event</h2>
       <input onChange={(e)=>changeEvent(e)}/>
     </div>
   );
