@@ -7,6 +7,7 @@ function App() {
     firstName: "Rakul",
     lastName: "kumar"
   };
+  const customer = ['Ravi','John','David']
   return (
     // <div>
     //   <h1>Parent Component</h1>
@@ -23,7 +24,7 @@ function App() {
       <h1>Parent Component</h1>
       {/* <User firstName="Rakul" lastName="Kumar"/> */}
       <User {...user} />
-      <CustomerList />
+      <CustomerList customer={customer} />
     </div>
   );
 }
