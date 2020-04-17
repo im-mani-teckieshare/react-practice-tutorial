@@ -9,7 +9,8 @@ function User(props) {
     //   <h2>Hello, {userName}</h2>
     // </div>
     <div>
-      <h2>Hello, {props.userName}</h2>
+      {/* <h2>Hello, {props.userName}</h2> */}
+     <h2>Hello, {props.firstName} {props.lastName}</h2>
     </div>
   );
 }

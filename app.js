@@ -1,7 +1,12 @@
 import React from "react";
 import User from "./user";
+import CustomerList from "./customerList";
 
 function App() {
+  const user = {
+    firstName: "Rakul",
+    lastName: "kumar"
+  };
   return (
     // <div>
     //   <h1>Parent Component</h1>
@@ -16,10 +21,9 @@ function App() {
     // </div>
     <div>
       <h1>Parent Component</h1>
-      <User userName="Rakul"/>
-      <User userName="Ravi"/>
-      <User userName="John"/>
-      <User userName="Danny"/>
+      {/* <User firstName="Rakul" lastName="Kumar"/> */}
+      <User {...user} />
+      <CustomerList />
     </div>
   );
 }
