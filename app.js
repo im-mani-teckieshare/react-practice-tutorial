@@ -11,26 +11,41 @@ import CustomerList from "./customerList";
 // }
 
 class App extends React.Component {
-  user = {
-    firstName: "John",
-    lastName: "David"
+  // userName = "Teckieshare";
+
+  state = {
+    userName: "TeckieShare"
   };
 
-  userName = "Teckieshare";
-
-  clickEvent() {
-    alert("click Event Fired");
+  constructor() {
+    super();
+    // this.userChange = this.userChange.bind(this);
   }
+
+  // userChange(e) {
+  //   this.setState({
+  //     userName: e.target.value
+  //   })
+  // }
+  userChange = e => {
+    this.setState({
+      userName: e.target.value
+    });
+  };
 
   render() {
     return (
       <div>
-        {/* <h3>TeckieShare</h3> */}
-        <h3>{this.userName}</h3>
-        <button onClick={this.clickEvent}>Click Me</button>
+        {/*  <h1>{this.userName}</h1>
+        <input value={this.userName} onChange={this.userChange} /> */}
+        <h1>{this.state.userName}</h1>
+        {/* <input value={this.state.userName} onChange={this.userChange} /> */}
+        {/*  <input value={this.state.userName} onChange={this.userChange.bind(this)} /> */}
+        <input value={this.state.userName} onChange={this.userChange} />
         <hr />
-        <h4>Props in Class Component</h4>
-        <User {...this.user} />
+        <User userName={this.state.userName} parentChangeEvent={
+          this.userChange
+        } />
       </div>
     );
   }

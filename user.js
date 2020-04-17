@@ -14,9 +14,8 @@ class User extends Component {
   render() {
     return (
       <div>
-        <h2>
-          Hello, {this.props.firstName} {this.props.lastName}
-        </h2>
+        <h2>Hello, {this.props.userName}</h2>
+        <input value={this.props.userName} onChange={this.props.parentChangeEvent} />
       </div>
     );
   }
