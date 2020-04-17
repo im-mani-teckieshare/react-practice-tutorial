@@ -30,7 +30,6 @@ class App extends React.Component {
         <button onClick={this.clickEvent}>Click Me</button>
         <hr />
         <h4>Props in Class Component</h4>
-        <br />
         <User {...this.user} />
       </div>
     );
