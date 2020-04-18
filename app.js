@@ -9,24 +9,42 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    //   fetch('https://jsonplaceholder.typicode.com/users')
-    // .then(response => response.json())
-    // .then(json => this.setState({'user':json}))
     Axios.get("https://jsonplaceholder.typicode.com/users").then(({ data }) =>
       this.setState({ user: data })
     );
   }
 
   showUser() {
-    return this.state.user.map(e => (
-      <div>
-        {e.name} - {e.email}
-      </div>
-    ));
+    return this.state.user.map(user => {
+      let { name, email, website, address, company } = user;
+      let { city } = address;
+      return (
+        <tr>
+          <td>{name}</td>
+          <td>{email}</td>
+          <td>{website}</td>
+          <td>{city}</td>
+          <td>{company.name}</td>
+        </tr>
+      );
+    });
   }
 
   render() {
-    return <div>{this.showUser()}</div>;
+    return (
+      <div>
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Website</th>
+            <th>Company</th>
+            <th>City</th>
+          </tr>
+        </table>
+        {this.showUser()}
+      </div>
+    );
   }
 }
 
