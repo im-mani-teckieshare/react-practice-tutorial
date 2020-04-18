@@ -24,6 +24,10 @@ class App extends React.Component {
     // return false;
   }
 
+  componentDidCatch(error, info){
+    console.log('error occured',error,info)
+  }
+
   componentWillUnmount() {
     console.log("component UnMount");
   }
