@@ -1,51 +1,40 @@
 import React from "react";
 import User from "./user";
-import CustomerList from "./customerList";
-
-// function App() {
-//   return (
-//     <div>
-//       <h3>TeckieShare</h3>
-//     </div>
-//   );
-// }
 
 class App extends React.Component {
-  // userName = "Teckieshare";
-
   state = {
-    userName: "TeckieShare"
+    user: [{ first: "Jill", last: "smith" }, { first: "john", last: "Doe" }]
   };
 
-  constructor() {
-    super();
-    // this.userChange = this.userChange.bind(this);
+  showRows(){
+   return this.state.user.map(e=>{
+      return <tr>
+            <th>{e.first}</th>
+            <th>{e.last}</th>
+          </tr>
+    })
   }
 
-  // userChange(e) {
-  //   this.setState({
-  //     userName: e.target.value
-  //   })
-  // }
-  userChange = e => {
+  addUser = (userObj)=>{
+    let userList = this.state.user;
+    userList.push(userObj);
     this.setState({
-      userName: e.target.value
-    });
-  };
+      'user':userList
+    })
+  }
 
   render() {
     return (
       <div>
-        {/*  <h1>{this.userName}</h1>
-        <input value={this.userName} onChange={this.userChange} /> */}
-        <h1>{this.state.userName}</h1>
-        {/* <input value={this.state.userName} onChange={this.userChange} /> */}
-        {/*  <input value={this.state.userName} onChange={this.userChange.bind(this)} /> */}
-        <input value={this.state.userName} onChange={this.userChange} />
-        <hr />
-        <User userName={this.state.userName} parentChangeEvent={
-          this.userChange
-        } />
+        <User addUser={this.addUser}/>
+        <br />
+        <table style={{ width: "100%" }}>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+          </tr>
+          {this.showRows()}
+        </table>
       </div>
     );
   }

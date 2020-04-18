@@ -1,21 +1,34 @@
 import React, { Component } from "react";
 
-// function User(props) {
-//   return (
-//     <div>
-//       <h2>
-//         Hello, {props.firstName} {props.lastName}
-//       </h2>
-//     </div>
-//   );
-// }
-
 class User extends Component {
+  state={
+    first:'',
+    last:''
+  }
+
+  inputChangeEvent = (e)=>{
+    this.setState({[e.target.name]:e.target.value})
+  }
+  onAddUser = ()=>{
+    this.props.addUser(this.state);
+    this.setState({
+      first:'',
+      last:''
+    })
+  }
   render() {
     return (
       <div>
-        <h2>Hello, {this.props.userName}</h2>
-        <input value={this.props.userName} onChange={this.props.parentChangeEvent} />
+       <div>
+          First Name
+          <input name="first" value={this.state.first} onChange={this.inputChangeEvent}/>
+        </div>
+        <br />
+        <div>
+          Last Name
+          <input name="last" value={this.state.last} onChange={this.inputChangeEvent}/>
+          <button onClick={this.onAddUser}>Add</button>
+        </div>
       </div>
     );
   }
