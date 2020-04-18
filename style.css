@@ -2,10 +2,13 @@ h1, p {
   font-family: Lato;
 }
 table{
-  width:100%;
+  width:750px;
+}
+th{
+  border:2px;
 }
 table, th, td {
-  border: 1px solid black;
+  border: 1px double black;
   border-collapse: collapse;
 }
 th, td {
