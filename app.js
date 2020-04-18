@@ -1,40 +1,52 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import User from "./user";
 
 class App extends React.Component {
-  state = {
-    user: [{ first: "Jill", last: "smith" }, { first: "john", last: "Doe" }]
-  };
-
-  showRows(){
-   return this.state.user.map(e=>{
-      return <tr>
-            <th>{e.first}</th>
-            <th>{e.last}</th>
-          </tr>
-    })
+  constructor(props) {
+    console.log("constructor");
+    this.state = {
+      name: ""
+    };
+    this.onChange = this.onChange.bind(this);
   }
 
-  addUser = (userObj)=>{
-    let userList = this.state.user;
-    userList.push(userObj);
+  componentDidMount() {
+    console.log("mount");
+  }
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log("updated");
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("should Update");
+    return true;
+    // return false;
+  }
+
+  componentWillUnmount() {
+    console.log("component UnMount");
+  }
+
+  onChange(e) {
     this.setState({
-      'user':userList
-    })
+      name: e.target.value
+    });
+  }
+
+  unMount() {
+    ReactDOM.unmountComponentAtNode(document.getElementById("root"));
   }
 
   render() {
+    console.log("render");
     return (
       <div>
-        <User addUser={this.addUser}/>
-        <br />
-        <table style={{ width: "100%" }}>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-          </tr>
-          {this.showRows()}
-        </table>
+        <h1>Component Life Cylce</h1>
+
+        <input value={this.state.name} onChange={this.onChange} />
+
+        <button onClick={this.unMount}>UnMount Me</button>
       </div>
     );
   }
