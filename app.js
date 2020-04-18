@@ -1,56 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import User from "./user";
+import Axios from 'axios'
 
 class App extends React.Component {
-  constructor(props) {
-    console.log("constructor");
-    this.state = {
-      name: ""
-    };
-    this.onChange = this.onChange.bind(this);
+
+  state = {
+    user:[]
   }
 
   componentDidMount() {
-    console.log("mount");
-  }
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log("updated");
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log("should Update");
-    return true;
-    // return false;
+  //   fetch('https://jsonplaceholder.typicode.com/users')
+  // .then(response => response.json())
+  // .then(json => this.setState({'user':json}))
+    Axios.get('https://jsonplaceholder.typicode.com/users')
+  .then(({data}) => this.setState({'user':data}))
   }
 
-  componentDidCatch(error, info){
-    console.log('error occured',error,info)
-  }
-
-  componentWillUnmount() {
-    console.log("component UnMount");
-  }
-
-  onChange(e) {
-    this.setState({
-      name: e.target.value
-    });
-  }
-
-  unMount() {
-    ReactDOM.unmountComponentAtNode(document.getElementById("root"));
+  showUser(){
+    return this.state.user.map(e => <div>{e.name} - {e.email}</div>)
   }
 
   render() {
-    console.log("render");
     return (
       <div>
-        <h1>Component Life Cylce</h1>
-
-        <input value={this.state.name} onChange={this.onChange} />
-
-        <button onClick={this.unMount}>UnMount Me</button>
+      {this.showUser()}
       </div>
     );
   }
